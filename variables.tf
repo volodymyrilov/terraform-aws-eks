@@ -274,3 +274,9 @@ variable "manage_worker_iam_resources" {
   description = "Whether to let the module manage worker IAM resources. If set to false, iam_instance_profile_name must be specified for workers."
   default     = true
 }
+
+variable "local_exec_env" {
+  description = "Additional env variables for local-exec config authmap provisioner."
+  type        = "map"
+  default     = {}
+}

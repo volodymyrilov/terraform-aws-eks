@@ -86,7 +86,7 @@ data "aws_iam_policy_document" "cluster_additional" {
 }
 
 resource "aws_iam_policy" "cluster_additional" {
-  name = "${var.cluster_name}-cluster_additional"
+  name = "${sha1(var.cluster_name)}Clusteradditional"
 
   policy = "${data.aws_iam_policy_document.cluster_additional.json}"
 }

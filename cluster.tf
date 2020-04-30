@@ -92,6 +92,6 @@ resource "aws_iam_policy" "cluster_additional" {
 }
 
 resource "aws_iam_role_policy_attachment" "cluster_additional" {
-  role       = "${aws_iam_role.cluster.arn}"
+  role       = "${aws_iam_role.cluster.name}"
   policy_arn = "${aws_iam_policy.cluster_additional.arn}"
 }

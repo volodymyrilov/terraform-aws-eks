@@ -72,3 +72,26 @@ resource "aws_iam_role_policy_attachment" "cluster_AmazonEKSServicePolicy" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSServicePolicy"
   role       = "${aws_iam_role.cluster.name}"
 }
+
+data "aws_iam_policy_document" "cluster_additional" {
+  version = "2012-10-17"
+
+  statement {
+    effect    = "Allow"
+    resources = ["*"]
+    actions   = [
+      "ec2:*",
+    ]
+  }
+}
+
+resource "aws_iam_policy" "cluster_additional" {
+  name = "${sha1(var.cluster_name)}Clusteradditional"
+
+  policy = "${data.aws_iam_policy_document.cluster_additional.json}"
+}
+
+resource "aws_iam_role_policy_attachment" "cluster_additional" {
+  role       = "${aws_iam_role.cluster.name}"
+  policy_arn = "${aws_iam_policy.cluster_additional.arn}"
+}

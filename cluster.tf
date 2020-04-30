@@ -80,7 +80,7 @@ data "aws_iam_policy_document" "cluster_additional" {
     effect    = "Allow"
     resources = ["*"]
     actions   = [
-      "ec2:DescribeAccountAttributes",
+      "ec2:*",
     ]
   }
 }

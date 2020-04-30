@@ -88,10 +88,10 @@ data "aws_iam_policy_document" "cluster_additional" {
 resource "aws_iam_policy" "cluster_additional" {
   name = "${var.cluster_name}-cluster_additional"
 
-  policy = data.aws_iam_policy_document.cluster_additional[0].json
+  policy = "${data.aws_iam_policy_document.cluster_additional.json}"
 }
 
 resource "aws_iam_role_policy_attachment" "cluster_additional" {
-  role       = aws_iam_role.cluster
-  policy_arn = aws_iam_policy.cluster_additional[0].arn
+  role       = "${aws_iam_role.cluster.arn}"
+  policy_arn = "${aws_iam_policy.cluster_additional.arn}"
 }

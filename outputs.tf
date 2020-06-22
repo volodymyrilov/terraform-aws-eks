@@ -116,3 +116,9 @@ output "worker_iam_role_arn" {
 output "identity-oidc-issuer" {
   value = "${data.aws_eks_cluster.example.identity.0.oidc.0.issuer}"
 }
+
+output "oidc-url" {
+  value = "${aws_iam_openid_connect_provider.example.url}"
+}
+
+

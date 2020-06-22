@@ -121,4 +121,6 @@ output "oidc-url" {
   value = "${aws_iam_openid_connect_provider.example.url}"
 }
 
-
+output "oidc-arn" {
+  value = "${aws_iam_openid_connect_provider.example.arn}"
+}

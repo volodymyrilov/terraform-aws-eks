@@ -7,5 +7,7 @@ resource "aws_iam_openid_connect_provider" "oidc_provider" {
 }
 
 data "aws_eks_cluster" "eks" {
-  name = "${aws_eks_cluster.this.name}"
+  name       = "${aws_eks_cluster.this.name}"
+  depends_on = ["aws_eks_cluster.this"]
+
 }

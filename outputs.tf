@@ -112,3 +112,15 @@ output "worker_iam_role_arn" {
   description = "default IAM role ARN for EKS worker groups"
   value       = "${element(coalescelist(aws_iam_role.workers.*.arn, data.aws_iam_instance_profile.custom_worker_group_iam_instance_profile.*.role_arn, data.aws_iam_instance_profile.custom_worker_group_launch_template_iam_instance_profile.*.role_arn, data.aws_iam_instance_profile.custom_worker_group_launch_template_mixed_iam_instance_profile.*.role_arn), 0)}"
 }
+
+output "identity-oidc-issuer" {
+  value = "${data.aws_eks_cluster.eks.identity.0.oidc.0.issuer}"
+}
+
+output "oidc-url" {
+  value = "${aws_iam_openid_connect_provider.oidc_provider.url}"
+}
+
+output "oidc-arn" {
+  value = "${aws_iam_openid_connect_provider.oidc_provider.arn}"
+}

@@ -22,8 +22,6 @@ rm ${path.module}/aws_auth_configmap.yaml ${path.module}/kube_config.yaml;
 EOS
 
     interpreter = ["${var.local_exec_interpreter}"]
-
-    environment = "${var.local_exec_env}"
   }
 
   triggers {

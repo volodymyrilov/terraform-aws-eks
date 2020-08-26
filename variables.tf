@@ -6,6 +6,7 @@ variable "cluster_enabled_log_types" {
 
 variable "cluster_sg_additional_networks" {
   description = "A list of the additional networks for security group."
+  type        = "list"
 }
 
 variable "cluster_name" {

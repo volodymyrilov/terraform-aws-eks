@@ -60,7 +60,7 @@ resource "aws_security_group_rule" "cluster_https_worker_ingress1" {
   from_port                = 443
   to_port                  = 443
   type                     = "ingress"
-  cidr_blocks              = "${var.cluster_sg_additional_networks}"
+  cidr_blocks              = ${var.cluster_sg_additional_networks}
 }
 
 resource "aws_iam_role" "cluster" {

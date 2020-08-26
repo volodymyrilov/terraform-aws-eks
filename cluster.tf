@@ -56,11 +56,11 @@ resource "aws_security_group_rule" "cluster_https_worker_ingress1" {
   count                    = "${var.cluster_create_security_group ? 1 : 0}"
   description              = "Allow pods to communicate with the EKS cluster API."
   protocol                 = "tcp"
+  cidr_blocks              = "${var.cluster_sg_additional_networks}"
   security_group_id        = "${aws_security_group.cluster.id}"
   from_port                = 443
   to_port                  = 443
   type                     = "ingress"
-  cidr_blocks              = ${var.cluster_sg_additional_networks}
 }
 
 resource "aws_iam_role" "cluster" {

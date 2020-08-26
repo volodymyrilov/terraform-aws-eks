@@ -52,7 +52,7 @@ resource "aws_security_group_rule" "cluster_https_worker_ingress" {
   type                     = "ingress"
 }
 
-resource "aws_security_group_rule" "cluster_https_worker_ingress" {
+resource "aws_security_group_rule" "cluster_https_worker_ingress1" {
   count                    = "${var.cluster_create_security_group ? 1 : 0}"
   description              = "Allow pods to communicate with the EKS cluster API."
   protocol                 = "tcp"

@@ -4,6 +4,12 @@ variable "cluster_enabled_log_types" {
   type        = "list"
 }
 
+variable "cluster_sg_additional_networks" {
+  default     = []
+  description = "A list of the additional networks for security group."
+  type        = "list"
+}
+
 variable "cluster_name" {
   description = "Name of the EKS cluster. Also used as a prefix in names of related resources."
 }

@@ -118,9 +118,9 @@ output "identity-oidc-issuer" {
 }
 
 output "oidc-url" {
-  value = "${aws_iam_openid_connect_provider.oidc_provider.url}"
+  value = "${element(aws_iam_openid_connect_provider.oidc_provider.*.url, 0)}"
 }
 
 output "oidc-arn" {
-  value = "${aws_iam_openid_connect_provider.oidc_provider.arn}"
+  value = "${element(aws_iam_openid_connect_provider.oidc_provider.*.arn, 0)}"
 }
